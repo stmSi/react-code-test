@@ -9,7 +9,7 @@ import {
   fetchPostByIdAsync,
   selectPostDetails,
 } from "./postDetailsSlice";
-import {ArrowBack} from "@mui/icons-material";
+import { ArrowBack } from "@mui/icons-material";
 
 export const PostDetails = () => {
   const { id } = useParams<{ id: string }>();
@@ -25,10 +25,9 @@ export const PostDetails = () => {
 
   return (
     <div>
-
       <Link to="/" style={{ textDecoration: "none" }}>
         <Button variant="outlined" color="primary" startIcon={<ArrowBack />}>
-         Return to Post List
+          Return to Post List
         </Button>
       </Link>
 
