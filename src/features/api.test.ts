@@ -1,4 +1,4 @@
-import nock from "nock";
+// import nock from "nock";
 import { fetchAllPosts, fetchCommentsByPostId, fetchPostById } from "./api";
 // import { JsonPlaceHolderURL } from "./axiosInstance";
 // import { IComment } from "./comment/IComment";
@@ -7,7 +7,7 @@ import { fetchAllPosts, fetchCommentsByPostId, fetchPostById } from "./api";
 
 describe("Testing External JsonPlaceHolder API functions", () => {
   afterEach(() => {
-    nock.cleanAll();
+    // nock.cleanAll();
   });
 
   it("fetches a post by ID", async () => {
