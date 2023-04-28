@@ -5,4 +5,3 @@ export interface IComment {
   email: string;
   body: string;
 }
-

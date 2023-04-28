@@ -15,10 +15,10 @@ test("renders PostDetails component", () => {
 
   render(
     <Provider store={store}>
-    <MemoryRouter>
-      <PostDetails />
-    </MemoryRouter>
-    </Provider>
+      <MemoryRouter>
+        <PostDetails />
+      </MemoryRouter>
+    </Provider>,
   );
 
   const returnToPostListButton = screen.getByText(/Return to Post List/i);

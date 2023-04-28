@@ -1,18 +1,18 @@
-import './App.css';
-import {PostList} from './features/post/PostList';
-import {Container} from '@mui/system';
-import {createBrowserRouter, RouterProvider} from 'react-router-dom';
-import {PostDetails} from './features/post/PostDetails';
+import "./App.css";
+import { PostList } from "./features/post/PostList";
+import { Container } from "@mui/system";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { PostDetails } from "./features/post/PostDetails";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <PostList />
+    element: <PostList />,
   },
   {
     path: "/post/:id",
-    element: <PostDetails />
-  }
+    element: <PostDetails />,
+  },
 ]);
 
 function App() {

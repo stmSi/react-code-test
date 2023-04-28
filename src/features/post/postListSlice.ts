@@ -21,7 +21,7 @@ export const fetchAllPostsAsync = createAsyncThunk(
     const response = await fetchAllPosts();
     // The value we return becomes the `fulfilled` action payload
     return response.data;
-  }
+  },
 );
 
 export const postListSlice = createSlice({
@@ -29,9 +29,9 @@ export const postListSlice = createSlice({
   initialState,
   // The `reducers` field lets us define reducers and generate associated actions
   reducers: {},
-  extraReducers: (builder) => {
+  extraReducers: builder => {
     builder
-      .addCase(fetchAllPostsAsync.pending, (state) => {
+      .addCase(fetchAllPostsAsync.pending, state => {
         state.status = "loading";
       })
       .addCase(
@@ -39,9 +39,9 @@ export const postListSlice = createSlice({
         (state, action: PayloadAction<IPost[]>) => {
           state.status = "idle";
           state.data = action.payload;
-        }
+        },
       )
-      .addCase(fetchAllPostsAsync.rejected, (state) => {
+      .addCase(fetchAllPostsAsync.rejected, state => {
         state.status = "failed";
       });
   },

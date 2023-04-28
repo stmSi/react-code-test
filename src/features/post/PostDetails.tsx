@@ -52,7 +52,7 @@ export const PostDetails = () => {
         <p>Loading comments...</p>
       )}
       {postDetailsState.commentsStatus === "idle" &&
-        postDetailsState.comments.map((comment) => (
+        postDetailsState.comments.map(comment => (
           <Card key={comment.id} sx={{ marginBottom: 2 }}>
             <CardContent>
               <Typography variant="h6" component="div">

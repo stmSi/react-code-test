@@ -27,4 +27,3 @@ interface ICompany {
   catchPhrase: string;
   bs: string;
 }
-

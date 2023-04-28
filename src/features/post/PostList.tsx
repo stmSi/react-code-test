@@ -6,7 +6,7 @@ import React, { useEffect, useState } from "react";
 
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
 import { fetchAllPostsAsync, selectPosts } from "../post/postListSlice";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export function PostList() {
   const postsState = useAppSelector(selectPosts);
@@ -24,25 +24,37 @@ export function PostList() {
   return (
     <Grid container direction="column" alignItems="center" spacing={4}>
       <Grid item>
-        <TextField onChange={handleSearchTextField} id="search-text-field" label="Search Title" variant="filled" focused />
+        <TextField
+          onChange={handleSearchTextField}
+          id="search-text-field"
+          label="Search Title"
+          variant="filled"
+          focused
+        />
       </Grid>
-      {postsState.status === 'loading' ? (
+      {postsState.status === "loading" ? (
         <Grid item>
           <CircularProgress />
         </Grid>
       ) : (
-      postsState.data
-      .filter((post) => post.title.toLowerCase().includes(searchString))
-      .map((post) => (
-        <Grid item key={post.id}>
-        <Link to={`/post/${post.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-          <Item>
-            <Typography variant="h5" justifyContent="center" color="#000">{post.title}</Typography>
-            <Typography textAlign="left">{post.body}</Typography>
-          </Item>
-          </Link>
-        </Grid>
-      )))}
+        postsState.data
+          .filter(post => post.title.toLowerCase().includes(searchString))
+          .map(post => (
+            <Grid item key={post.id}>
+              <Link
+                to={`/post/${post.id}`}
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                <Item>
+                  <Typography variant="h5" justifyContent="center" color="#000">
+                    {post.title}
+                  </Typography>
+                  <Typography textAlign="left">{post.body}</Typography>
+                </Item>
+              </Link>
+            </Grid>
+          ))
+      )}
     </Grid>
   );
 }
