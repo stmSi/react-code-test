@@ -1,7 +1,9 @@
 import axios from "axios";
 
+export const JsonPlaceHolderURL = "https://jsonplaceholder.typicode.com/"
+
 const axiosInstance = axios.create({
-  baseURL: "https://jsonplaceholder.typicode.com/",
+  baseURL: JsonPlaceHolderURL,
   timeout: 1000,
   headers: { "Content-type": "application/json; charset=UTF-8" },
 });
