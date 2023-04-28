@@ -1,12 +1,13 @@
-import { styled } from "@mui/material/styles";
-import { CircularProgress, Paper, TextField, Typography } from "@mui/material";
+import { CircularProgress, TextField, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid";
 
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
 import { fetchAllPostsAsync, selectPosts } from "../post/postListSlice";
-import { Link } from "react-router-dom";
+
+import './PostList.css';
 
 export function PostList() {
   const postsState = useAppSelector(selectPosts);
@@ -40,17 +41,19 @@ export function PostList() {
         postsState.data
           .filter(post => post.title.toLowerCase().includes(searchString))
           .map(post => (
-            <Grid item key={post.id}>
+            <Grid
+              item
+              key={post.id}
+              className="post-item" 
+            >
               <Link
                 to={`/post/${post.id}`}
                 style={{ textDecoration: "none", color: "inherit" }}
               >
-                <Item>
-                  <Typography variant="h5" justifyContent="center" color="#000">
+                  <Typography variant="h5" justifyContent="center" className="post-title">
                     {post.title}
                   </Typography>
-                  <Typography textAlign="left">{post.body}</Typography>
-                </Item>
+                  <Typography textAlign="left" className="post-body">{post.body}</Typography>
               </Link>
             </Grid>
           ))
@@ -59,10 +62,3 @@ export function PostList() {
   );
 }
 
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: "left",
-  color: theme.palette.text.secondary,
-}));

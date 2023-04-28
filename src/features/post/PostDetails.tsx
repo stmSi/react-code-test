@@ -2,6 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import { useEffect } from "react";
 
 import { Button, Card, CardContent, Divider, Typography } from "@mui/material";
+import { ArrowBack } from "@mui/icons-material";
 
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
 import {
@@ -9,7 +10,6 @@ import {
   fetchPostByIdAsync,
   selectPostDetails,
 } from "./postDetailsSlice";
-import { ArrowBack } from "@mui/icons-material";
 
 export const PostDetails = () => {
   const { id } = useParams<{ id: string }>();
@@ -48,12 +48,13 @@ export const PostDetails = () => {
       <Divider />
       <Divider />
       <Typography variant="h6">Comments:</Typography>
+      <Divider />
       {postDetailsState.commentsStatus === "loading" && (
         <p>Loading comments...</p>
       )}
       {postDetailsState.commentsStatus === "idle" &&
         postDetailsState.comments.map(comment => (
-          <Card key={comment.id} sx={{ marginBottom: 2 }}>
+          <Card key={comment.id} sx={{ marginBottom: 2 }} elevation={4}>
             <CardContent>
               <Typography variant="h6" component="div">
                 {comment.name}
